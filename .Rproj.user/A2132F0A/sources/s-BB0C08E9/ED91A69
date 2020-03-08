@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583702233887.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "ED91A69",
+    "lastKnownWriteTime" : 1583616392,
+    "last_content_update" : 1583616392,
+    "path" : "~/Desktop/T4transport/R/Wasserstein.R",
+    "project_path" : "R/Wasserstein.R",
+    "properties" : {
+        "cursorPosition" : "31,0",
+        "scrollLine" : "12"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

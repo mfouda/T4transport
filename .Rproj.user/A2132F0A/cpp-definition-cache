@@ -1,0 +1,107 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
+                "kind" : 6,
+                "line" : 9,
+                "name" : "cpp_IPOT(arma::vec, arma::vec, arma::mat, double, int, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_IPOT#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#I#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
+        "file_last_write" : 1583702387
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
+                "kind" : 6,
+                "line" : 11,
+                "name" : "cpp_Sinkhorn_Cuturi(arma::vec, arma::vec, arma::mat, double, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_Sinkhorn_Cuturi#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
+        "file_last_write" : 1583643235
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/mycode_sinkhorn.cpp",
+                "kind" : 6,
+                "line" : 8,
+                "name" : "div_2_vecs(arma::vec, arma::vec)",
+                "parent_name" : "",
+                "usr" : "c:@F@div_2_vecs#$@N@arma@C@Col>#d#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/mycode_sinkhorn.cpp",
+                "kind" : 6,
+                "line" : 16,
+                "name" : "compute_Gamma(arma::mat, arma::vec, arma::vec)",
+                "parent_name" : "",
+                "usr" : "c:@F@compute_Gamma#$@N@arma@C@Mat>#d#$@N@arma@C@Col>#d#S1_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/mycode_sinkhorn.cpp",
+                "kind" : 6,
+                "line" : 31,
+                "name" : "cpp_sinkhorn(arma::mat, arma::vec, arma::vec, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_sinkhorn#$@N@arma@C@Mat>#d#$@N@arma@C@Col>#d#S1_#I#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/mycode_sinkhorn.cpp",
+        "file_last_write" : 1583539155
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 18,
+                "name" : "rcpparma_hello_world",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_hello_world#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 30,
+                "name" : "rcpparma_outerproduct(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_outerproduct#&1$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/T4transport/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 38,
+                "name" : "rcpparma_innerproduct(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_innerproduct#&1$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/rcpparma_hello_world.cpp",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "rcpparma_bothproducts(const arma::colvec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpparma_bothproducts#&1$@N@arma@C@Col>#d#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/rcpparma_hello_world.cpp",
+        "file_last_write" : 1583525137
+    }
+]

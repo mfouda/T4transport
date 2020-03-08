@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583616566277.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5B9ADCF",
+    "lastKnownWriteTime" : 1583702526,
+    "last_content_update" : 1583702526152,
+    "path" : "~/Desktop/T4transport/R/Sinkhorn.R",
+    "project_path" : "R/Sinkhorn.R",
+    "properties" : {
+        "cursorPosition" : "27,0",
+        "scrollLine" : "12",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1583701427601.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7238F72E",
+    "lastKnownWriteTime" : 1583702387,
+    "last_content_update" : 1583702387779,
+    "path" : "~/Desktop/T4transport/src/arma_IPOT.cpp",
+    "project_path" : "src/arma_IPOT.cpp",
+    "properties" : {
+        "cursorPosition" : "40,30",
+        "scrollLine" : "21",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}
