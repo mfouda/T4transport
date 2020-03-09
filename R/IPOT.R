@@ -34,7 +34,7 @@
 #' par(opar)
 #' 
 #' @export
-IPOT <- function(dxy, p=1, wx=NULL, wy=NULL, beta=0.1, L=1, maxiter=496, abstol=1e-6){
+IPOT <- function(dxy, p=1, wx=NULL, wy=NULL, beta=0.1, L=1, maxiter=496, abstol=1e-6, print.progress=FALSE){
   ##################################################
   # Preprocessing
   # 1. dxy
@@ -68,7 +68,7 @@ IPOT <- function(dxy, p=1, wx=NULL, wy=NULL, beta=0.1, L=1, maxiter=496, abstol=
     output$distance = max(dxy)
   } else {
     cxy = (dxy^p)
-    output = cpp_IPOT(wx, wy, cxy, mybeta, myL, myiter, mytol)
+    output = cpp_IPOT(wx, wy, cxy, mybeta, myL, myiter, mytol, as.logical(print.progress))
     output$distance = (output$distance^(1/p))
   }
   return(output)

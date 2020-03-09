@@ -12,7 +12,8 @@ IPOT(
   beta = 0.1,
   L = 1,
   maxiter = 496,
-  abstol = 1e-06
+  abstol = 1e-06,
+  print.progress = FALSE
 )
 }
 \description{

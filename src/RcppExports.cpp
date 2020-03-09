@@ -7,8 +7,8 @@
 using namespace Rcpp;
 
 // cpp_IPOT
-Rcpp::List cpp_IPOT(arma::vec mu, arma::vec nu, arma::mat C, double beta, int L, int maxiter, double abstol);
-RcppExport SEXP _T4transport_cpp_IPOT(SEXP muSEXP, SEXP nuSEXP, SEXP CSEXP, SEXP betaSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+Rcpp::List cpp_IPOT(arma::vec mu, arma::vec nu, arma::mat C, double beta, int L, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4transport_cpp_IPOT(SEXP muSEXP, SEXP nuSEXP, SEXP CSEXP, SEXP betaSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,24 +19,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type L(LSEXP);
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_IPOT(mu, nu, C, beta, L, maxiter, abstol));
-    return rcpp_result_gen;
-END_RCPP
-}
-// cpp_IPOT_WB
-Rcpp::List cpp_IPOT_WB(arma::mat C, arma::mat Pk, double beta, arma::vec lambdas, int L, int maxiter, double abstol);
-RcppExport SEXP _T4transport_cpp_IPOT_WB(SEXP CSEXP, SEXP PkSEXP, SEXP betaSEXP, SEXP lambdasSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type C(CSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type Pk(PkSEXP);
-    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type lambdas(lambdasSEXP);
-    Rcpp::traits::input_parameter< int >::type L(LSEXP);
-    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
-    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_IPOT_WB(C, Pk, beta, lambdas, L, maxiter, abstol));
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_IPOT(mu, nu, C, beta, L, maxiter, abstol, printer));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -87,8 +71,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_T4transport_cpp_IPOT", (DL_FUNC) &_T4transport_cpp_IPOT, 7},
-    {"_T4transport_cpp_IPOT_WB", (DL_FUNC) &_T4transport_cpp_IPOT_WB, 7},
+    {"_T4transport_cpp_IPOT", (DL_FUNC) &_T4transport_cpp_IPOT, 8},
     {"_T4transport_cpp_Sinkhorn_Bregman", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Bregman, 7},
     {"_T4transport_cpp_Sinkhorn_Cuturi", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Cuturi, 7},
     {"_T4transport_extra_distmat", (DL_FUNC) &_T4transport_extra_distmat, 1},

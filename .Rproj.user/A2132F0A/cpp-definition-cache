@@ -6,49 +6,13 @@
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
                 "kind" : 6,
                 "line" : 10,
-                "name" : "cpp_IPOT(arma::vec, arma::vec, arma::mat, double, int, int, double)",
+                "name" : "cpp_IPOT(arma::vec, arma::vec, arma::mat, double, int, int, double, bool)",
                 "parent_name" : "",
-                "usr" : "c:@F@cpp_IPOT#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#I#d#"
-            },
-            {
-                "column" : 11,
-                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-                "kind" : 6,
-                "line" : 54,
-                "name" : "tmp_log(arma::vec)",
-                "parent_name" : "",
-                "usr" : "c:@F@tmp_log#$@N@arma@C@Col>#d#"
-            },
-            {
-                "column" : 11,
-                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-                "kind" : 6,
-                "line" : 62,
-                "name" : "tmp_exp(arma::vec)",
-                "parent_name" : "",
-                "usr" : "c:@F@tmp_exp#$@N@arma@C@Col>#d#"
-            },
-            {
-                "column" : 11,
-                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-                "kind" : 6,
-                "line" : 70,
-                "name" : "update_WB_q(arma::mat, arma::mat, arma::cube, arma::vec)",
-                "parent_name" : "",
-                "usr" : "c:@F@update_WB_q#$@N@arma@C@Mat>#d#S0_#$@N@arma@C@Cube>#d#$@N@arma@C@Col>#d#"
-            },
-            {
-                "column" : 12,
-                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-                "kind" : 6,
-                "line" : 82,
-                "name" : "cpp_IPOT_WB(arma::mat, arma::mat, double, arma::vec, int, int, double)",
-                "parent_name" : "",
-                "usr" : "c:@F@cpp_IPOT_WB#$@N@arma@C@Mat>#d#S0_#d#$@N@arma@C@Col>#d#I#I#d#"
+                "usr" : "c:@F@cpp_IPOT#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#I#d#b#"
             }
         ],
         "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-        "file_last_write" : 1583734463
+        "file_last_write" : 1583793414
     },
     {
         "definitions" : [
