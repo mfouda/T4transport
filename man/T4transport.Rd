@@ -4,7 +4,7 @@
 \name{T4transport}
 \alias{T4transport}
 \alias{T4transport-package}
-\title{Tools for Computational Optimal Transport in Statistics}
+\title{Tools for Computational Optimal Transport}
 \description{
 dd
 }

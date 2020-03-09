@@ -1,4 +1,4 @@
-#' Tools for Computational Optimal Transport in Statistics
+#' Tools for Computational Optimal Transport
 #' 
 #' dd
 #'

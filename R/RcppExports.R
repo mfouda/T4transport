@@ -5,27 +5,19 @@ cpp_IPOT <- function(mu, nu, C, beta, L, maxiter, abstol) {
     .Call('_T4transport_cpp_IPOT', PACKAGE = 'T4transport', mu, nu, C, beta, L, maxiter, abstol)
 }
 
-cpp_Sinkhorn_Cuturi <- function(a, b, costm, lambda, maxiter, abstol) {
-    .Call('_T4transport_cpp_Sinkhorn_Cuturi', PACKAGE = 'T4transport', a, b, costm, lambda, maxiter, abstol)
+cpp_IPOT_WB <- function(C, Pk, beta, lambdas, L, maxiter, abstol) {
+    .Call('_T4transport_cpp_IPOT_WB', PACKAGE = 'T4transport', C, Pk, beta, lambdas, L, maxiter, abstol)
 }
 
-cpp_sinkhorn <- function(G, wx, wy, maxiter, abstol) {
-    .Call('_T4transport_cpp_sinkhorn', PACKAGE = 'T4transport', G, wx, wy, maxiter, abstol)
+cpp_Sinkhorn_Bregman <- function(mu, nu, costm, lambda, maxiter, abstol, printer) {
+    .Call('_T4transport_cpp_Sinkhorn_Bregman', PACKAGE = 'T4transport', mu, nu, costm, lambda, maxiter, abstol, printer)
 }
 
-rcpparma_hello_world <- function() {
-    .Call('_T4transport_rcpparma_hello_world', PACKAGE = 'T4transport')
+cpp_Sinkhorn_Cuturi <- function(a, b, costm, lambda, maxiter, abstol, printer) {
+    .Call('_T4transport_cpp_Sinkhorn_Cuturi', PACKAGE = 'T4transport', a, b, costm, lambda, maxiter, abstol, printer)
 }
 
-rcpparma_outerproduct <- function(x) {
-    .Call('_T4transport_rcpparma_outerproduct', PACKAGE = 'T4transport', x)
-}
-
-rcpparma_innerproduct <- function(x) {
-    .Call('_T4transport_rcpparma_innerproduct', PACKAGE = 'T4transport', x)
-}
-
-rcpparma_bothproducts <- function(x) {
-    .Call('_T4transport_rcpparma_bothproducts', PACKAGE = 'T4transport', x)
+extra_distmat <- function(X) {
+    .Call('_T4transport_extra_distmat', PACKAGE = 'T4transport', X)
 }
 

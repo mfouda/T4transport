@@ -23,9 +23,43 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_IPOT_WB
+Rcpp::List cpp_IPOT_WB(arma::mat C, arma::mat Pk, double beta, arma::vec lambdas, int L, int maxiter, double abstol);
+RcppExport SEXP _T4transport_cpp_IPOT_WB(SEXP CSEXP, SEXP PkSEXP, SEXP betaSEXP, SEXP lambdasSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type C(CSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Pk(PkSEXP);
+    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type lambdas(lambdasSEXP);
+    Rcpp::traits::input_parameter< int >::type L(LSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_IPOT_WB(C, Pk, beta, lambdas, L, maxiter, abstol));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_Sinkhorn_Bregman
+Rcpp::List cpp_Sinkhorn_Bregman(arma::vec mu, arma::vec nu, arma::mat costm, double lambda, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4transport_cpp_Sinkhorn_Bregman(SEXP muSEXP, SEXP nuSEXP, SEXP costmSEXP, SEXP lambdaSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type nu(nuSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type costm(costmSEXP);
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_Sinkhorn_Bregman(mu, nu, costm, lambda, maxiter, abstol, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_Sinkhorn_Cuturi
-Rcpp::List cpp_Sinkhorn_Cuturi(arma::vec a, arma::vec b, arma::mat costm, double lambda, int maxiter, double abstol);
-RcppExport SEXP _T4transport_cpp_Sinkhorn_Cuturi(SEXP aSEXP, SEXP bSEXP, SEXP costmSEXP, SEXP lambdaSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+Rcpp::List cpp_Sinkhorn_Cuturi(arma::vec a, arma::vec b, arma::mat costm, double lambda, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4transport_cpp_Sinkhorn_Cuturi(SEXP aSEXP, SEXP bSEXP, SEXP costmSEXP, SEXP lambdaSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -35,77 +69,29 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_Sinkhorn_Cuturi(a, b, costm, lambda, maxiter, abstol));
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_Sinkhorn_Cuturi(a, b, costm, lambda, maxiter, abstol, printer));
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_sinkhorn
-arma::mat cpp_sinkhorn(arma::mat G, arma::vec wx, arma::vec wy, int maxiter, double abstol);
-RcppExport SEXP _T4transport_cpp_sinkhorn(SEXP GSEXP, SEXP wxSEXP, SEXP wySEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+// extra_distmat
+arma::mat extra_distmat(arma::mat& X);
+RcppExport SEXP _T4transport_extra_distmat(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type G(GSEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type wx(wxSEXP);
-    Rcpp::traits::input_parameter< arma::vec >::type wy(wySEXP);
-    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
-    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_sinkhorn(G, wx, wy, maxiter, abstol));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP _T4transport_rcpparma_hello_world() {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP _T4transport_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP _T4transport_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP _T4transport_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_distmat(X));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_T4transport_cpp_IPOT", (DL_FUNC) &_T4transport_cpp_IPOT, 7},
-    {"_T4transport_cpp_Sinkhorn_Cuturi", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Cuturi, 6},
-    {"_T4transport_cpp_sinkhorn", (DL_FUNC) &_T4transport_cpp_sinkhorn, 5},
-    {"_T4transport_rcpparma_hello_world", (DL_FUNC) &_T4transport_rcpparma_hello_world, 0},
-    {"_T4transport_rcpparma_outerproduct", (DL_FUNC) &_T4transport_rcpparma_outerproduct, 1},
-    {"_T4transport_rcpparma_innerproduct", (DL_FUNC) &_T4transport_rcpparma_innerproduct, 1},
-    {"_T4transport_rcpparma_bothproducts", (DL_FUNC) &_T4transport_rcpparma_bothproducts, 1},
+    {"_T4transport_cpp_IPOT_WB", (DL_FUNC) &_T4transport_cpp_IPOT_WB, 7},
+    {"_T4transport_cpp_Sinkhorn_Bregman", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Bregman, 7},
+    {"_T4transport_cpp_Sinkhorn_Cuturi", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Cuturi, 7},
+    {"_T4transport_extra_distmat", (DL_FUNC) &_T4transport_extra_distmat, 1},
     {NULL, NULL, 0}
 };
 

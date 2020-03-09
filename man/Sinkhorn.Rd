@@ -10,13 +10,15 @@ Sinkhorn(
   wx = NULL,
   wy = NULL,
   lambda = 0.1,
-  method = c("basic"),
+  method = c("basic", "Bregman"),
   maxiter = 496,
-  abstol = 1e-06
+  abstol = 1e-06,
+  print.progress = FALSE
 )
 }
 \description{
-Sinkhorn Distance
+basic is for fixed point iteration
+Bregman
 }
 \examples{
 ## create two small datasets from bivariate normal

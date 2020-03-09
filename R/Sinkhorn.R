@@ -1,6 +1,7 @@
 #' Sinkhorn Distance
 #' 
-#' 
+#' basic is for fixed point iteration
+#' Bregman
 #' 
 #' @examples 
 #' ## create two small datasets from bivariate normal
@@ -51,7 +52,8 @@
 #' 
 #' @export
 Sinkhorn <- function(dxy, p=1, wx=NULL, wy=NULL, lambda=0.1,
-                     method=c("basic"), maxiter=496, abstol=1e-6){
+                     method=c("basic","Bregman"), maxiter=496, abstol=1e-6, 
+                     print.progress=FALSE){
   ##################################################
   # Preprocessing
   # 1. dxy
@@ -66,7 +68,8 @@ Sinkhorn <- function(dxy, p=1, wx=NULL, wy=NULL, lambda=0.1,
   wx = check_weight(wx, m, "Sinkhorn")
   wy = check_weight(wy, n, "Sinkhorn")
   # 4. method
-  mymethod = match.arg(method)
+  mlist = c("basic","bregman")
+  mymethod = match.arg(tolower(method), mlist)
   # 5. lambda
   mylambda = as.double(lambda)
   if (mylambda <= 0){
@@ -76,8 +79,9 @@ Sinkhorn <- function(dxy, p=1, wx=NULL, wy=NULL, lambda=0.1,
     print("* Sinkhorn : 'lambda' may be too small, inducing numerical instability.")
   }
   # 6. other variables
-  myiter = round(maxiter)
-  mytol  = as.double(abstol)
+  myiter  = round(maxiter)
+  mytol   = as.double(abstol)
+  myprint = as.logical(print.progress)
   
   ##################################################
   # Main Computation
@@ -87,7 +91,8 @@ Sinkhorn <- function(dxy, p=1, wx=NULL, wy=NULL, lambda=0.1,
   } else {
     cxy = (dxy^p)
     output = switch(mymethod,
-                    "basic" = cpp_Sinkhorn_Cuturi(wx,wy,cxy, lambda, maxiter, abstol))
+                    "basic"   = cpp_Sinkhorn_Cuturi( wx,wy,cxy,mylambda,myiter,mytol,myprint),
+                    "bregman" = cpp_Sinkhorn_Bregman(wx,wy,cxy,mylambda,myiter,mytol,myprint))
     output$distance = (output$distance^(1/p))
   }
   
@@ -95,3 +100,34 @@ Sinkhorn <- function(dxy, p=1, wx=NULL, wy=NULL, lambda=0.1,
   # Return
   return(output)
 }
+
+
+# ## Personal Example
+# m = 20
+# n = 10
+# X = matrix(rnorm(m*2),ncol=2) # m obs. for X
+# Y = matrix(rnorm(n*2),ncol=2) # n obs. for Y
+# 
+# dXY = array(0,c(m,n))
+# for (i in 1:m){
+#   vx = as.vector(X[i,])
+#   for (j in 1:n){
+#     vy  = as.vector(Y[j,])
+#     dXY[i,j] = sqrt(sum((vx-vy)^2))
+#   }
+# }
+# 
+# outS1 = Sinkhorn(dXY, lambda=0.02)
+# outS2 = Sinkhorn(dXY, lambda=0.05)
+# outS3 = Sinkhorn(dXY, lambda=0.1)
+# outB1 = Sinkhorn(dXY, lambda=0.02, method = "bregman")
+# outB2 = Sinkhorn(dXY, lambda=0.05, method = "bregman")
+# outB3 = Sinkhorn(dXY, lambda=0.1, method = "bregman")
+# 
+# par(mfrow=c(2,3))
+# image(outS1$plan,main=paste0("basic=0.01:",round(outS1$distance,3)))
+# image(outS2$plan,main=paste0("basic=0.05:",round(outS2$distance,3)))
+# image(outS3$plan,main=paste0("basic=0.10:",round(outS3$distance,3)))
+# image(outB1$plan,main=paste0("Bregman=0.01:",round(outB1$distance,3)))
+# image(outB2$plan,main=paste0("Bregman=0.05:",round(outB2$distance,3)))
+# image(outB3$plan,main=paste0("Bregman=0.10:",round(outB3$distance,3)))
