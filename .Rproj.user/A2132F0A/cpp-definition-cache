@@ -2,25 +2,76 @@
     {
         "definitions" : [
             {
-                "column" : 12,
-                "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Barycenter.cpp",
                 "kind" : 6,
-                "line" : 10,
+                "line" : 12,
+                "name" : "C_Barycenter_Proximal(int, int, double, arma::field<arma::mat>, arma::field<arma::vec>, arma::vec, double, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@C_Barycenter_Proximal#I#I#d#$@N@arma@C@field>#$@N@arma@C@Mat>#d#$@N@arma@C@field>#$@N@arma@C@Col>#d#S3_#d#b#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Barycenter.cpp",
+                "kind" : 6,
+                "line" : 61,
+                "name" : "C_Barycenter_Sinkhorn(int, int, double, arma::field<arma::mat>, arma::field<arma::vec>, arma::vec, double, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@C_Barycenter_Sinkhorn#I#I#d#$@N@arma@C@field>#$@N@arma@C@Mat>#d#$@N@arma@C@field>#$@N@arma@C@Col>#d#S3_#d#b#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/arma_Barycenter.cpp",
+        "file_last_write" : 1584299024
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Proximal.cpp",
+                "kind" : 6,
+                "line" : 9,
+                "name" : "cpp_Sinkhorn_plan(arma::vec, arma::vec, arma::mat, double, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_Sinkhorn_plan#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Proximal.cpp",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "cpp_EPOT(arma::vec, arma::vec, arma::mat, double, int, int, double, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_EPOT#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#I#d#b#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Proximal.cpp",
+                "kind" : 6,
+                "line" : 84,
                 "name" : "cpp_IPOT(arma::vec, arma::vec, arma::mat, double, int, int, double, bool)",
                 "parent_name" : "",
                 "usr" : "c:@F@cpp_IPOT#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#I#d#b#"
             }
         ],
-        "file" : "/home/kisung/Desktop/T4transport/src/arma_IPOT.cpp",
-        "file_last_write" : 1583793414
+        "file" : "/home/kisung/Desktop/T4transport/src/arma_Proximal.cpp",
+        "file_last_write" : 1584039937
     },
     {
         "definitions" : [
             {
-                "column" : 12,
+                "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
                 "kind" : 6,
                 "line" : 9,
+                "name" : "cpp_Sinkhorn_Subgradient(arma::vec, arma::vec, arma::mat, double, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_Sinkhorn_Subgradient#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
+                "kind" : 6,
+                "line" : 50,
                 "name" : "cpp_Sinkhorn_Bregman(arma::vec, arma::vec, arma::mat, double, int, double, bool)",
                 "parent_name" : "",
                 "usr" : "c:@F@cpp_Sinkhorn_Bregman#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#b#"
@@ -29,28 +80,97 @@
                 "column" : 12,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
                 "kind" : 6,
-                "line" : 60,
+                "line" : 101,
                 "name" : "cpp_Sinkhorn_Cuturi(arma::vec, arma::vec, arma::mat, double, int, double, bool)",
                 "parent_name" : "",
                 "usr" : "c:@F@cpp_Sinkhorn_Cuturi#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#b#"
             }
         ],
         "file" : "/home/kisung/Desktop/T4transport/src/arma_Sinkhorn.cpp",
-        "file_last_write" : 1583782080
+        "file_last_write" : 1584040518
     },
     {
         "definitions" : [
             {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 23,
+                "name" : "extra_pnorm(arma::rowvec, arma::rowvec, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_pnorm#$@N@arma@C@Row>#d#S0_#d#"
+            },
+            {
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 9,
-                "name" : "extra_distmat(arma::mat &)",
+                "line" : 36,
+                "name" : "extra_dist2mat(arma::mat, arma::mat, double)",
                 "parent_name" : "",
-                "usr" : "c:@F@extra_distmat#&$@N@arma@C@Mat>#d#"
+                "usr" : "c:@F@extra_dist2mat#$@N@arma@C@Mat>#d#S0_#d#"
+            },
+            {
+                "column" : 24,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 56,
+                "name" : "extra_dist2list(arma::mat, arma::field<arma::mat>, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_dist2list#$@N@arma@C@Mat>#d#$@N@arma@C@field>#S0_#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 70,
+                "name" : "extra_distmat(arma::mat &, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_distmat#&$@N@arma@C@Mat>#d#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 96,
+                "name" : "extra_vec_centering(arma::vec)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_vec_centering#$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 106,
+                "name" : "extra_smooth_Subgradient(arma::vec, arma::vec, arma::mat, double, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_smooth_Subgradient#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 151,
+                "name" : "extra_L1_normalize(arma::vec)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_L1_normalize#$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 158,
+                "name" : "extra_any_nan(arma::vec)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_any_nan#$@N@arma@C@Col>#d#"
             }
         ],
         "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
-        "file_last_write" : 1583725129
+        "file_last_write" : 1584250834
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.h",
+        "file_last_write" : 1584248509
     }
 ]

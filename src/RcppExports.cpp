@@ -6,6 +6,60 @@
 
 using namespace Rcpp;
 
+// C_Barycenter_Proximal
+arma::vec C_Barycenter_Proximal(int N, int maxiter, double abstol, arma::field<arma::mat> listcXY, arma::field<arma::vec> marginals, arma::vec weights, double lambda, bool printer);
+RcppExport SEXP _T4transport_C_Barycenter_Proximal(SEXP NSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP listcXYSEXP, SEXP marginalsSEXP, SEXP weightsSEXP, SEXP lambdaSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::mat> >::type listcXY(listcXYSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::vec> >::type marginals(marginalsSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type weights(weightsSEXP);
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(C_Barycenter_Proximal(N, maxiter, abstol, listcXY, marginals, weights, lambda, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// C_Barycenter_Sinkhorn
+arma::vec C_Barycenter_Sinkhorn(int N, int maxiter, double abstol, arma::field<arma::mat> listcXY, arma::field<arma::vec> marginals, arma::vec weights, double lambda, bool printer);
+RcppExport SEXP _T4transport_C_Barycenter_Sinkhorn(SEXP NSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP listcXYSEXP, SEXP marginalsSEXP, SEXP weightsSEXP, SEXP lambdaSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type N(NSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::mat> >::type listcXY(listcXYSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::vec> >::type marginals(marginalsSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type weights(weightsSEXP);
+    Rcpp::traits::input_parameter< double >::type lambda(lambdaSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(C_Barycenter_Sinkhorn(N, maxiter, abstol, listcXY, marginals, weights, lambda, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_EPOT
+Rcpp::List cpp_EPOT(arma::vec mu, arma::vec nu, arma::mat C, double beta, int L, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4transport_cpp_EPOT(SEXP muSEXP, SEXP nuSEXP, SEXP CSEXP, SEXP betaSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type nu(nuSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type C(CSEXP);
+    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< int >::type L(LSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_EPOT(mu, nu, C, beta, L, maxiter, abstol, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_IPOT
 Rcpp::List cpp_IPOT(arma::vec mu, arma::vec nu, arma::mat C, double beta, int L, int maxiter, double abstol, bool printer);
 RcppExport SEXP _T4transport_cpp_IPOT(SEXP muSEXP, SEXP nuSEXP, SEXP CSEXP, SEXP betaSEXP, SEXP LSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
@@ -21,6 +75,22 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
     Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
     rcpp_result_gen = Rcpp::wrap(cpp_IPOT(mu, nu, C, beta, L, maxiter, abstol, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_Sinkhorn_Subgradient
+arma::vec cpp_Sinkhorn_Subgradient(arma::vec a, arma::vec b, arma::mat M, double regeps, int maxIter, double tolerance);
+RcppExport SEXP _T4transport_cpp_Sinkhorn_Subgradient(SEXP aSEXP, SEXP bSEXP, SEXP MSEXP, SEXP regepsSEXP, SEXP maxIterSEXP, SEXP toleranceSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type a(aSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type b(bSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type M(MSEXP);
+    Rcpp::traits::input_parameter< double >::type regeps(regepsSEXP);
+    Rcpp::traits::input_parameter< int >::type maxIter(maxIterSEXP);
+    Rcpp::traits::input_parameter< double >::type tolerance(toleranceSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_Sinkhorn_Subgradient(a, b, M, regeps, maxIter, tolerance));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -58,23 +128,123 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// extra_pnorm
+double extra_pnorm(arma::rowvec x, arma::rowvec y, double p);
+RcppExport SEXP _T4transport_extra_pnorm(SEXP xSEXP, SEXP ySEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::rowvec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< arma::rowvec >::type y(ySEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_pnorm(x, y, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_dist2mat
+arma::mat extra_dist2mat(arma::mat X, arma::mat Y, double p);
+RcppExport SEXP _T4transport_extra_dist2mat(SEXP XSEXP, SEXP YSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_dist2mat(X, Y, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_dist2list
+arma::field<arma::mat> extra_dist2list(arma::mat X, arma::field<arma::mat> dlist, double p);
+RcppExport SEXP _T4transport_extra_dist2list(SEXP XSEXP, SEXP dlistSEXP, SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::field<arma::mat> >::type dlist(dlistSEXP);
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_dist2list(X, dlist, p));
+    return rcpp_result_gen;
+END_RCPP
+}
 // extra_distmat
-arma::mat extra_distmat(arma::mat& X);
-RcppExport SEXP _T4transport_extra_distmat(SEXP XSEXP) {
+arma::mat extra_distmat(arma::mat& X, double p);
+RcppExport SEXP _T4transport_extra_distmat(SEXP XSEXP, SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
-    rcpp_result_gen = Rcpp::wrap(extra_distmat(X));
+    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_distmat(X, p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_vec_centering
+arma::vec extra_vec_centering(arma::vec x);
+RcppExport SEXP _T4transport_extra_vec_centering(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_vec_centering(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_smooth_Subgradient
+arma::vec extra_smooth_Subgradient(arma::vec a, arma::vec b, arma::mat M, double regpar, int maxiter, double abstol);
+RcppExport SEXP _T4transport_extra_smooth_Subgradient(SEXP aSEXP, SEXP bSEXP, SEXP MSEXP, SEXP regparSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type a(aSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type b(bSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type M(MSEXP);
+    Rcpp::traits::input_parameter< double >::type regpar(regparSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_smooth_Subgradient(a, b, M, regpar, maxiter, abstol));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_L1_normalize
+arma::vec extra_L1_normalize(arma::vec x);
+RcppExport SEXP _T4transport_extra_L1_normalize(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_L1_normalize(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// extra_any_nan
+bool extra_any_nan(arma::vec x);
+RcppExport SEXP _T4transport_extra_any_nan(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_any_nan(x));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_T4transport_C_Barycenter_Proximal", (DL_FUNC) &_T4transport_C_Barycenter_Proximal, 8},
+    {"_T4transport_C_Barycenter_Sinkhorn", (DL_FUNC) &_T4transport_C_Barycenter_Sinkhorn, 8},
+    {"_T4transport_cpp_EPOT", (DL_FUNC) &_T4transport_cpp_EPOT, 8},
     {"_T4transport_cpp_IPOT", (DL_FUNC) &_T4transport_cpp_IPOT, 8},
+    {"_T4transport_cpp_Sinkhorn_Subgradient", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Subgradient, 6},
     {"_T4transport_cpp_Sinkhorn_Bregman", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Bregman, 7},
     {"_T4transport_cpp_Sinkhorn_Cuturi", (DL_FUNC) &_T4transport_cpp_Sinkhorn_Cuturi, 7},
-    {"_T4transport_extra_distmat", (DL_FUNC) &_T4transport_extra_distmat, 1},
+    {"_T4transport_extra_pnorm", (DL_FUNC) &_T4transport_extra_pnorm, 3},
+    {"_T4transport_extra_dist2mat", (DL_FUNC) &_T4transport_extra_dist2mat, 3},
+    {"_T4transport_extra_dist2list", (DL_FUNC) &_T4transport_extra_dist2list, 3},
+    {"_T4transport_extra_distmat", (DL_FUNC) &_T4transport_extra_distmat, 2},
+    {"_T4transport_extra_vec_centering", (DL_FUNC) &_T4transport_extra_vec_centering, 1},
+    {"_T4transport_extra_smooth_Subgradient", (DL_FUNC) &_T4transport_extra_smooth_Subgradient, 6},
+    {"_T4transport_extra_L1_normalize", (DL_FUNC) &_T4transport_extra_L1_normalize, 1},
+    {"_T4transport_extra_any_nan", (DL_FUNC) &_T4transport_extra_any_nan, 1},
     {NULL, NULL, 0}
 };
 

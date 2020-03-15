@@ -7,7 +7,7 @@
 #' @aliases T4transport-package
 #' @import Rdpack
 #' @importFrom lpSolve lp
-#' @importFrom stats rnorm
+#' @importFrom stats rnorm median
 #' @importFrom utils packageVersion
 #' @importFrom transport transport
 #' @importFrom Rcpp evalCpp

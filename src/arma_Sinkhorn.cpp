@@ -6,6 +6,47 @@ using namespace Rcpp;
 using namespace arma;
 
 // [[Rcpp::export]]
+arma::vec cpp_Sinkhorn_Subgradient(arma::vec a, arma::vec b, arma::mat M, double regeps, int maxIter = 1000, double tolerance = 0.0001) {
+  
+  // Transforming Input, i.e. calculating the kernel
+  
+  double lambda = 1.0/(static_cast<double>(regeps));
+  arma::mat K = exp(-lambda*M);
+  arma::mat ainvK = diagmat(1/a) * K;
+  
+  
+  //Initialize u, v and the vector next for the stopping criterion
+  arma::vec u(a.n_rows);
+  u = u.ones()/a.n_rows;
+  arma::vec next;
+  
+  for(int i=0;i<maxIter;i++){
+    
+    u = 1 / (ainvK * (b / (K.t()*u)));  //Sinkhorn`s update
+    
+    //The stopping criterion is checked every 20th step, i.e. if u and the next update of u (called next) differ in 2-norm only by a tolerance
+    if(i % 20 == 0){
+      next = 1 / (ainvK * (b / (K.t()*u)));
+      double Criterion = norm(abs(next-u));
+      if(Criterion < tolerance){
+        u = next;
+        break;
+      }
+      else{
+        u = next;
+      }
+    }
+    
+  }
+  
+  //Computation of the dual solution (c.f. Proposition 2, Fast Computation of Wasserstein Barycenters)
+  
+  arma::vec alpha = (1 / lambda) * log(u) - accu(log(u))/(lambda*(u.n_rows));
+  
+  return(alpha);
+}
+
+// [[Rcpp::export]]
 Rcpp::List cpp_Sinkhorn_Bregman(arma::vec mu, arma::vec nu, arma::mat costm, double lambda, int maxiter, double abstol, bool printer){
   // prepare
   int M = costm.n_rows;
