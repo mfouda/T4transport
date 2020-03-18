@@ -228,6 +228,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// extra_SubgradPlan
+Rcpp::List extra_SubgradPlan(arma::vec a, arma::vec b, arma::mat M, double regpar, int maxiter, double abstol);
+RcppExport SEXP _T4transport_extra_SubgradPlan(SEXP aSEXP, SEXP bSEXP, SEXP MSEXP, SEXP regparSEXP, SEXP maxiterSEXP, SEXP abstolSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type a(aSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type b(bSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type M(MSEXP);
+    Rcpp::traits::input_parameter< double >::type regpar(regparSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    rcpp_result_gen = Rcpp::wrap(extra_SubgradPlan(a, b, M, regpar, maxiter, abstol));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_T4transport_C_Barycenter_Proximal", (DL_FUNC) &_T4transport_C_Barycenter_Proximal, 8},
@@ -245,6 +261,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4transport_extra_smooth_Subgradient", (DL_FUNC) &_T4transport_extra_smooth_Subgradient, 6},
     {"_T4transport_extra_L1_normalize", (DL_FUNC) &_T4transport_extra_L1_normalize, 1},
     {"_T4transport_extra_any_nan", (DL_FUNC) &_T4transport_extra_any_nan, 1},
+    {"_T4transport_extra_SubgradPlan", (DL_FUNC) &_T4transport_extra_SubgradPlan, 6},
     {NULL, NULL, 0}
 };
 

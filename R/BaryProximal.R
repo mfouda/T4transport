@@ -47,7 +47,8 @@
 #' 
 #' 
 #' @export
-BaryProximal <- function(support, measures, marginals=NULL, weights=NULL, p=2, maxiter=496, abstol=1e-5, print.progress=TRUE, useR=FALSE){
+BaryProximal <- function(support, measures, marginals=NULL, weights=NULL, p=2, beta=0.1, L=1, 
+                         method=c("exact","inexact"), maxiter=496, abstol=1e-5, print.progress=TRUE, useR=FALSE){
   ##################################################
   # Preprocessing
   # 1. support
@@ -68,6 +69,15 @@ BaryProximal <- function(support, measures, marginals=NULL, weights=NULL, p=2, m
   # 6. other ones
   myiter = round(maxiter)
   mytol  = max(double(abstol), sqrt(.Machine$double.eps))
+  # 7. IPOT-related stuffs
+  allmethod = c("exact","inexact")
+  if (missing(method)){
+    mymethod = "inexact"
+  } else {
+    mymethod = match.arg(tolower(method), allmethod)
+  }
+  myL    = round(L)
+  mybeta = as.double(beta)
   
   ##################################################
   # Preliminary Computation
@@ -119,13 +129,24 @@ BaryProximal <- function(support, measures, marginals=NULL, weights=NULL, p=2, m
     lambda = max(c(lambda, max(listcXY[[k]])/200))
   }
   # C++/R
-  if (useR){
-    # R version of iterations
-    output = R_Barycenter_Proximal(N, myiter, mytol, listcXY, marginals, weights, lambda, as.logical(print.progress))
-  } else {
-    # C++ version of iterations
-    output = C_Barycenter_Proximal(N, myiter, mytol, listcXY, marginals, weights, lambda, as.logical(print.progress))
+  if (all(mymethod=="exact")){ # exact method from Cuturi (2014) method
+    if (useR){
+      # R version of iterations
+      output = R_Barycenter_Proximal(N, myiter, mytol, listcXY, marginals, weights, lambda, as.logical(print.progress))
+    } else { 
+      # C++ version of iterations
+      output = C_Barycenter_Proximal(N, myiter, mytol, listcXY, marginals, weights, lambda, as.logical(print.progress))
+    }  
+  } else { # inexact with Bregman divergence from Xie (2019) method
+    if (useR){
+      # R version of iterations
+      output = R_Barycenter_Proximal_IPOT(N, myiter, mytol, listcXY, marginals, weights, mybeta, as.logical(print.progress), L=myL)
+    } else {
+      # C++ version of iterations
+    }
   }
+  
+    
   
   ##################################################
   # Return
@@ -165,4 +186,72 @@ R_Barycenter_Proximal <- function(N, myiter, mytol, listcXY, marginals, weights,
   
   # run 
   return(ahat)
+}
+#' @keywords internal
+R_Barycenter_Proximal_IPOT <- function(N, myiter, mytol, listcXY, marginals, weights, beta, printer, L=1){
+  # unique feature for IPOT : only returns a valid one with 'sum(weights)=1'
+  weights = weights/sum(weights)
+  
+  # parameters
+  K = length(listcXY)
+  L = round(L)
+  qold = rep(1/N, N)
+  
+  # preliminary computation
+  listG     = list()
+  listGamma = list()
+  listH     = list()
+  for (k in 1:K){
+    listG[[k]] = exp(-listcXY[[k]]/beta)
+    listGamma[[k]] = array(1,dim(listcXY[[k]]))
+  }
+  lista = list()
+  listb = list()
+  for (k in 1:K){
+    nk = ncol(listG[[k]])
+    listb[[k]] = rep(1/nk, nk)
+  }
+  
+  # main iteration
+  for (it in 1:myiter){
+    # update Hk
+    for (k in 1:K){
+      listH[[k]] = listG[[k]]*listGamma[[k]]
+    }
+    # iteration w.r.t L
+    for (l in 1:L){
+      # update all a's
+      for (k in 1:K){
+        lista[[k]] = qold/as.vector((listH[[k]]%*%listb[[k]]))
+      }
+      # update all b's
+      for (k in 1:K){
+        listb[[k]] = marginals[[k]]/as.vector(t(listH[[k]])%*%lista[[k]])
+      }
+      # update q (normalization required?)
+      qnew = 0
+      for (k in 1:K){
+        qnew = qnew + weights[k]*log(as.vector(lista[[k]])*as.vector(listH[[k]]%*%listb[[k]]))
+      }
+      qnew = exp(qnew)
+      if (any(is.na(qnew))){
+        return(qold)
+      }
+      qinc = sqrt(sum((qold-qnew)^2))
+      qold = qnew
+    }
+    # update Gamma's
+    for (k in 1:K){
+      listGamma[[k]] = base::diag(lista[[k]])%*%listH[[k]]%*%base::diag(listb[[k]])
+    }
+    if (printer){
+      print(paste0("* BaryProximal (R): iteration ",it,"/",myiter," complete.."))
+    }
+    if (qinc < mytol){
+      break
+    }
+  }
+
+  # return
+  return(qold)
 }

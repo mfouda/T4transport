@@ -61,3 +61,7 @@ extra_any_nan <- function(x) {
     .Call('_T4transport_extra_any_nan', PACKAGE = 'T4transport', x)
 }
 
+extra_SubgradPlan <- function(a, b, M, regpar, maxiter, abstol) {
+    .Call('_T4transport_extra_SubgradPlan', PACKAGE = 'T4transport', a, b, M, regpar, maxiter, abstol)
+}
+

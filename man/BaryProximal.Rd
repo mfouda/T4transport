@@ -10,6 +10,9 @@ BaryProximal(
   marginals = NULL,
   weights = NULL,
   p = 2,
+  beta = 0.1,
+  L = 1,
+  method = c("exact", "inexact"),
   maxiter = 496,
   abstol = 1e-05,
   print.progress = TRUE,
@@ -34,8 +37,6 @@ BaryProximal(
 \item{print.progress}{a logical; \code{TRUE} to print iteration.}
 
 \item{useR}{if \code{TRUE}, we use \pkg{R} version of code in conjunction with partial \pkg{C++} while \code{FALSE} involves pure \pkg{C++} implementation.}
-
-\item{lambda}{regularization parameter. If too small, it will lead to earlier break due to numerical precision issue.}
 }
 \value{
 a length-\eqn{n} vector of weights for atoms from \code{support}.

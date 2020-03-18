@@ -95,7 +95,7 @@
                 "column" : 8,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 23,
+                "line" : 24,
                 "name" : "extra_pnorm(arma::rowvec, arma::rowvec, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_pnorm#$@N@arma@C@Row>#d#S0_#d#"
@@ -104,7 +104,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 36,
+                "line" : 37,
                 "name" : "extra_dist2mat(arma::mat, arma::mat, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_dist2mat#$@N@arma@C@Mat>#d#S0_#d#"
@@ -113,7 +113,7 @@
                 "column" : 24,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 56,
+                "line" : 57,
                 "name" : "extra_dist2list(arma::mat, arma::field<arma::mat>, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_dist2list#$@N@arma@C@Mat>#d#$@N@arma@C@field>#S0_#d#"
@@ -122,7 +122,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 70,
+                "line" : 71,
                 "name" : "extra_distmat(arma::mat &, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_distmat#&$@N@arma@C@Mat>#d#d#"
@@ -131,7 +131,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 96,
+                "line" : 97,
                 "name" : "extra_vec_centering(arma::vec)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_vec_centering#$@N@arma@C@Col>#d#"
@@ -140,7 +140,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 106,
+                "line" : 104,
                 "name" : "extra_smooth_Subgradient(arma::vec, arma::vec, arma::mat, double, int, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_smooth_Subgradient#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
@@ -149,7 +149,7 @@
                 "column" : 11,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 151,
+                "line" : 149,
                 "name" : "extra_L1_normalize(arma::vec)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_L1_normalize#$@N@arma@C@Col>#d#"
@@ -158,19 +158,28 @@
                 "column" : 6,
                 "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
                 "kind" : 6,
-                "line" : 158,
+                "line" : 156,
                 "name" : "extra_any_nan(arma::vec)",
                 "parent_name" : "",
                 "usr" : "c:@F@extra_any_nan#$@N@arma@C@Col>#d#"
+            },
+            {
+                "column" : 12,
+                "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
+                "kind" : 6,
+                "line" : 168,
+                "name" : "extra_SubgradPlan(arma::vec, arma::vec, arma::mat, double, int, double)",
+                "parent_name" : "",
+                "usr" : "c:@F@extra_SubgradPlan#$@N@arma@C@Col>#d#S0_#$@N@arma@C@Mat>#d#d#I#d#"
             }
         ],
         "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.cpp",
-        "file_last_write" : 1584250834
+        "file_last_write" : 1584558927
     },
     {
         "definitions" : [
         ],
         "file" : "/home/kisung/Desktop/T4transport/src/arma_extra.h",
-        "file_last_write" : 1584248509
+        "file_last_write" : 1584558349
     }
 ]

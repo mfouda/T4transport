@@ -16,6 +16,7 @@ using namespace std;
 // 6. extra_smooth_Subgradient : compute subgradient
 // 7. extra_L1_normalize       : do the L1 normalization of a vector  
 // 8. extra_any_nan            : BOOL if a vector has any NaN/NA value
+// 9. extra_SubgradPlan        : compute Subgradient as well as Plan
 
 
 // 1. extra_pnorm : compute |x-y|_p
@@ -99,9 +100,6 @@ arma::vec extra_vec_centering(arma::vec x){
 
 
 // 6. extra_smooth_Subgradient : compute subgradient
-
-
-
 // [[Rcpp::export]]
 arma::vec extra_smooth_Subgradient(arma::vec a, arma::vec b, arma::mat M, double regpar, int maxiter, double abstol) {
   // prepare
@@ -163,4 +161,52 @@ bool extra_any_nan(arma::vec x){
     }
   }
   return(false);
+}
+
+// 9. extra_SubgradPlan : compute Subgradient as well as Plan
+// [[Rcpp::export]]
+Rcpp::List extra_SubgradPlan(arma::vec a, arma::vec b, arma::mat M, double regpar, int maxiter, double abstol) {
+  // prepare
+  double lambda = 1.0/regpar;           // corresponding to my convention 
+  arma::mat K   = arma::exp(-lambda*M);
+  arma::mat Ktil = arma::diagmat(1/a)*K;
+  
+  // initialize
+  int NN      = a.n_elem;
+  int MM      = b.n_elem;
+  double Ndb  = static_cast<double>(NN);
+  double uinc = 0.0;
+  arma::vec uold(NN,fill::zeros);
+  arma::vec unew(NN,fill::zeros);
+  arma::vec vvec(MM,fill::zeros);
+  uold = uold.ones()/Ndb;
+  unew = unew.ones()/Ndb;
+  
+  // main iteration
+  for (int it=0; it<maxiter; it++){
+    // Sinkhorn update
+    uold = 1.0/(Ktil*(b/(K.t()*uold)));
+    // if (extra_any_nan(unew)){
+    //   break;
+    // }
+    // uold = unew;
+    // while u changes.. do 
+    if ((it%5 == 0)&&(it>4)){
+      vvec = b/(K.t()*uold);
+      unew = 1/(Ktil*vvec);
+      uinc = arma::norm(uold-unew,2);
+      if (uinc < abstol){
+        uold = unew;
+        break;
+      } else {
+        uold = unew;
+      }
+    }
+  }
+  
+  // let's return transport plan and smoothed dual solution
+  arma::mat plan = arma::diagmat(uold)*K*arma::diagmat(vvec);
+  arma::vec alpha  = (1.0/lambda)*arma::log(uold) - arma::accu(arma::log(uold))/(lambda*Ndb);
+  return Rcpp::List::create(Rcpp::Named("plan")=plan,
+                            Rcpp::Named("subgradient")=alpha);
 }
